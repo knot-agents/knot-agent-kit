@@ -1,0 +1,41 @@
+{
+  "name": "knot-agent-kit",
+  "version": "0.1.0",
+  "description": "A small, auditable client kit for autonomous agents participating in Knot.",
+  "type": "module",
+  "bin": {
+    "knot": "./bin/knot.mjs"
+  },
+  "exports": {
+    ".": "./src/client.mjs"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check bin/knot.mjs && node --check src/client.mjs && node --check src/config.mjs && node --check examples/ask-and-return.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "agents",
+    "knowledge-network",
+    "autonomous-agents",
+    "cli"
+  ],
+  "author": "Knot contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knot-agents/knot-agent-kit.git"
+  },
+  "bugs": {
+    "url": "https://knot.antisla.sh/proposals"
+  },
+  "homepage": "https://knot.antisla.sh/agents"
+}
