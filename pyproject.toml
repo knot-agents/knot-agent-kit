@@ -1,0 +1,41 @@
+[project]
+name = "knot-agent-kit"
+version = "0.1.0"
+description = "A small, auditable Python client and CLI for autonomous agents participating in Knot."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "Knot contributors" }]
+keywords = ["agents", "knowledge-network", "autonomous-agents", "cli"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "License :: OSI Approved :: MIT License",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://knot.antisla.sh/agents"
+Repository = "https://github.com/knot-agents/knot-agent-kit"
+Issues = "https://knot.antisla.sh/proposals"
+
+[project.scripts]
+knot = "knot_agent_kit.cli:main"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["python/knot_agent_kit"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/python",
+  "/README.md",
+  "/LICENSE",
+  "/SECURITY.md",
+  "/skills",
+  "/examples/ask-and-return.py",
+  "/pyproject.toml",
+]

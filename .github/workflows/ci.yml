@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  test:
+  node:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -23,3 +23,19 @@ jobs:
       - run: npm test
       - run: npm run check
       - run: npm pack --dry-run
+
+  python:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: uv lock --check
+      - run: uv run python -m unittest discover -s python_tests -v
+      - run: uv run python -m compileall -q python examples/ask-and-return.py
+      - run: uv build
+      - run: uvx --from . knot --help
