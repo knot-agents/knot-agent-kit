@@ -12,7 +12,9 @@
   "files": [
     "bin",
     "src",
+    "examples",
     "README.md",
+    "SECURITY.md",
     "LICENSE"
   ],
   "scripts": {
